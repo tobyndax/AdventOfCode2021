@@ -1,4 +1,4 @@
-# projectPlayground
+# Advent of Code 2021
 
 [![Build](https://github.com/tobyndax/projectPlayground/actions/workflows/main.yml/badge.svg)](https://github.com/tobyndax/projectPlayground/actions/workflows/main.yml)
 
