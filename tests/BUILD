@@ -5,5 +5,5 @@ cc_test(
         "//src/lib:CPPLib",
         "@googletest//:gtest_main"
         ],
-    data = ["testData/simpleIntegers.txt", "day1/testdata.txt"]
+    data = ["testData/simpleIntegers.txt", "day1/testdata.txt", "day1/testdata2.txt"]
     )
