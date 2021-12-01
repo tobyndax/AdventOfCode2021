@@ -1,6 +1,6 @@
 # Advent of Code 2021
 
-[![Build](https://github.com/tobyndax/projectPlayground/actions/workflows/main.yml/badge.svg)](https://github.com/tobyndax/projectPlayground/actions/workflows/main.yml)
+[![Build](https://github.com/tobyndax/AdventOfCode2021/actions/workflows/main.yml/badge.svg)](https://github.com/tobyndax/AdventOfCode2021/actions/workflows/main.yml)
 
 ## Installing Bazel
 The recommended way of installing Bazel is Bazelisk.
