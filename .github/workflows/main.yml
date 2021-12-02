@@ -19,13 +19,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v2
 
       - name: run tests
-        run: bazelisk test tests:tests
+        run: bazelisk test --test_output=errors tests:tests
 
       - name: save test path
         run: |
