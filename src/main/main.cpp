@@ -1,14 +1,35 @@
 #include "src/lib/cpplib.h"
 #include "src/lib/day1solver.h"
 #include "src/lib/day2solver.h"
+#include "src/lib/day3solver.h"
 #include "src/lib/util.h"
 
 #include <iostream>
 
 int main() {
 
-  int day = 2;
-  if (day == 2) {
+  int day = 3;
+
+  if (day == 3) {
+    std::string path = "src/main/day3/input.txt";
+    FileReader fileReader(path);
+
+    std::vector<std::string> data = fileReader.getAsStrings();
+
+    Day3Solver solver(data);
+    int gamma = 0;
+    int epsilon = 0;
+    int ogr = 0;
+    int csr = 0;
+    solver.solve(gamma, epsilon, ogr, csr);
+
+    int multGE = gamma * epsilon;
+    std::cout << multGE << std::endl;
+
+    int multOC = ogr * csr;
+    std::cout << multOC << std::endl;
+
+  } else if (day == 2) {
 
     std::string path = "src/main/day2/input.txt";
     FileReader fileReader(path);

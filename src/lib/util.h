@@ -21,6 +21,7 @@ public:
   FileReader(std::string path);
   std::vector<int> getAsIntegers();
   std::vector<std::pair<Point3D, int>> getDirectionValue();
+  std::vector<std::string> getAsStrings();
 
 private:
   std::string rawText = "";

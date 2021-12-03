@@ -80,3 +80,14 @@ std::vector<std::pair<Point3D, int>> FileReader::getDirectionValue() {
   }
   return result;
 }
+
+std::vector<std::string> FileReader::getAsStrings() {
+
+  std::vector<std::string> results;
+  auto ss = std::stringstream{rawText};
+
+  for (std::string line; std::getline(ss, line, '\n');) {
+    results.push_back(line);
+  }
+  return results;
+}

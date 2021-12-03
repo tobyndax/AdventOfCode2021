@@ -6,6 +6,7 @@ cc_binary(
     deps = ["//src/lib:CPPLib"],
     data = [
         "day1/input.txt",
-        "day2/input.txt"
+        "day2/input.txt",
+        "day3/input.txt"
         ]
     )
