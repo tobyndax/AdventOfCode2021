@@ -19,10 +19,16 @@ int main() {
     Day3Solver solver(data);
     int gamma = 0;
     int epsilon = 0;
-    solver.solve(gamma, epsilon);
+    int ogr = 0;
+    int csr = 0;
+    solver.solve(gamma, epsilon, ogr, csr);
 
-    int mult = gamma * epsilon;
-    std::cout << mult << std::endl;
+    int multGE = gamma * epsilon;
+    std::cout << multGE << std::endl;
+
+    int multOC = ogr * csr;
+    std::cout << multOC << std::endl;
+
   } else if (day == 2) {
 
     std::string path = "src/main/day2/input.txt";
