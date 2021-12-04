@@ -3,7 +3,6 @@
 #include "gtest/gtest.h"
 
 TEST(Day3Test, Day3Example) {
-  std::cout << "Starting Test" << std::endl;
   int gtGamma = 22;
   int gtEpsilon = 9;
   int gtOgr = 23;
