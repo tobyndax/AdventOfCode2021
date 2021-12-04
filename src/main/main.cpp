@@ -2,6 +2,7 @@
 #include "src/lib/day1solver.h"
 #include "src/lib/day2solver.h"
 #include "src/lib/day3solver.h"
+#include "src/lib/day4solver.h"
 #include "src/lib/util.h"
 
 #include <iostream>
@@ -18,33 +19,16 @@ int main() {
 
     fileReader.getBingoTiles(bingoNumbers, bingoTiles);
 
-    int numbersDrawn = 0;
-    int winnerScore = 0;
+    Day4Solver solver;
+
+    int winnerScore;
     int currentNumber;
     int tileSum;
-    bool win = false;
-    for (auto &val : bingoNumbers) {
-      numbersDrawn++;
-      currentNumber = val;
-      std::cout << currentNumber << std::endl;
-      for (auto it = bingoTiles.begin(); it != bingoTiles.end();) {
-        auto &tile = *it;
-        tile.markHit(val);
-        win = tile.checkWin();
-        if (win) {
-          tile.printTile();
-          tileSum = tile.winnerScore(1);
-          winnerScore = tile.winnerScore(val);
-          it = bingoTiles.erase(it);
-        } else {
-          it++;
-        }
-      }
-      if (bingoTiles.size() == 0) {
-        break;
-      }
-    }
+    solver.solveWorstTile(bingoNumbers, bingoTiles, winnerScore, currentNumber,
+                          tileSum);
+
     std::cout << winnerScore << std::endl;
+
   } else if (day == 3) {
     std::string path = "src/main/day3/input.txt";
     FileReader fileReader(path);

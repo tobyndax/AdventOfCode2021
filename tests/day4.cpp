@@ -1,3 +1,4 @@
+#include "src/lib/day4solver.h"
 #include "src/lib/util.h"
 #include "gtest/gtest.h"
 
@@ -44,33 +45,13 @@ TEST(Day4Test, Part2) {
   std::vector<BingoTile> bingoTiles;
 
   fileReader.getBingoTiles(bingoNumbers, bingoTiles);
+  Day4Solver solver;
 
-  int numbersDrawn = 0;
-  int winnerScore = 0;
+  int winnerScore;
   int currentNumber;
   int tileSum;
-  bool win = false;
-  for (auto &val : bingoNumbers) {
-    numbersDrawn++;
-    currentNumber = val;
-    std::cout << currentNumber << std::endl;
-    for (auto it = bingoTiles.begin(); it != bingoTiles.end();) {
-      auto &tile = *it;
-      tile.markHit(val);
-      win = tile.checkWin();
-      if (win) {
-        tile.printTile();
-        tileSum = tile.winnerScore(1);
-        winnerScore = tile.winnerScore(val);
-        it = bingoTiles.erase(it);
-      } else {
-        it++;
-      }
-    }
-    if (bingoTiles.size() == 0) {
-      break;
-    }
-  }
+  solver.solveWorstTile(bingoNumbers, bingoTiles, winnerScore, currentNumber,
+                        tileSum);
 
   ASSERT_EQ(currentNumber, 13);
   ASSERT_EQ(tileSum, 148);
