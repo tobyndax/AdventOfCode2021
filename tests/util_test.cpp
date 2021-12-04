@@ -28,3 +28,16 @@ TEST(UtilTest, CanParseBinaryGrid) {
   ASSERT_EQ(data[4], "10101");
   ASSERT_EQ(12, data.size());
 }
+
+TEST(UtilTest, CanParseBingo) {
+  std::string path = "tests/day4/testdata.txt";
+  FileReader fileReader(path);
+
+  std::vector<int> bingoNumbers;
+  std::vector<BingoTile> bingoTiles;
+
+  fileReader.getBingoTiles(bingoNumbers, bingoTiles);
+
+  ASSERT_EQ(bingoNumbers.size(), 27);
+  ASSERT_EQ(bingoTiles.size(), 3);
+}

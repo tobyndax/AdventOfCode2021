@@ -2,15 +2,34 @@
 #include "src/lib/day1solver.h"
 #include "src/lib/day2solver.h"
 #include "src/lib/day3solver.h"
+#include "src/lib/day4solver.h"
 #include "src/lib/util.h"
 
 #include <iostream>
 
 int main() {
 
-  int day = 3;
+  int day = 4;
+  if (day == 4) {
+    std::string path = "src/main/day4/input.txt";
+    FileReader fileReader(path);
 
-  if (day == 3) {
+    std::vector<int> bingoNumbers;
+    std::vector<BingoTile> bingoTiles;
+
+    fileReader.getBingoTiles(bingoNumbers, bingoTiles);
+
+    Day4Solver solver;
+
+    int winnerScore;
+    int currentNumber;
+    int tileSum;
+    solver.solveWorstTile(bingoNumbers, bingoTiles, winnerScore, currentNumber,
+                          tileSum);
+
+    std::cout << winnerScore << std::endl;
+
+  } else if (day == 3) {
     std::string path = "src/main/day3/input.txt";
     FileReader fileReader(path);
 
