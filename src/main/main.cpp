@@ -8,9 +8,35 @@
 
 int main() {
 
-  int day = 3;
+  int day = 4;
+  if (day == 4) {
+    std::string path = "src/main/day4/input.txt";
+    FileReader fileReader(path);
 
-  if (day == 3) {
+    std::vector<int> bingoNumbers;
+    std::vector<BingoTile> bingoTiles;
+
+    fileReader.getBingoTiles(bingoNumbers, bingoTiles);
+
+    int numbersDrawn = 0;
+    int winnerScore = 0;
+    bool win = false;
+    for (auto &val : bingoNumbers) {
+      numbersDrawn++;
+      for (auto &tile : bingoTiles) {
+        tile.markHit(val);
+        win = tile.checkWin();
+        if (win) {
+          winnerScore = tile.winnerScore(val);
+          break;
+        }
+      }
+      if (win) {
+        break;
+      }
+    }
+    std::cout << "Winner!! " << winnerScore << std::endl;
+  } else if (day == 3) {
     std::string path = "src/main/day3/input.txt";
     FileReader fileReader(path);
 

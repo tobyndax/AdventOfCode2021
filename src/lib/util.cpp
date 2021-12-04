@@ -91,3 +91,41 @@ std::vector<std::string> FileReader::getAsStrings() {
   }
   return results;
 }
+
+void FileReader::getBingoTiles(std::vector<int> &bingoNumbers,
+                               std::vector<BingoTile> &bingoTiles) {
+
+  std::stringstream fullStream(rawText);
+  std::string firstLine;
+  std::getline(fullStream, firstLine, '\n');
+  // first line is the numbers to draw
+  std::stringstream ss(firstLine);
+  while (ss.good()) {
+    std::string substr;
+    getline(ss, substr, ',');
+    bingoNumbers.push_back(std::stoi(substr));
+  }
+
+  std::getline(fullStream, firstLine, '\n');
+  std::vector<int> tileNumbers;
+  int width = 0;
+  for (std::string line; std::getline(fullStream, line, '\n');) {
+    if (line == "") {
+      // create a bingoTile
+      bingoTiles.push_back(BingoTile(tileNumbers, width));
+      tileNumbers.clear();
+      std::getline(fullStream, line, '\n');
+    }
+
+    std::istringstream ss_(line);
+    width = 0;
+    while (ss_.good()) {
+      std::string substr;
+      int val;
+      ss_ >> val;
+      tileNumbers.push_back(val);
+      width++;
+    }
+  }
+  bingoTiles.push_back(BingoTile(tileNumbers, width));
+}

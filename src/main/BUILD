@@ -7,6 +7,7 @@ cc_binary(
     data = [
         "day1/input.txt",
         "day2/input.txt",
-        "day3/input.txt"
+        "day3/input.txt",
+        "day4/input.txt"
         ]
     )
