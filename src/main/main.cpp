@@ -23,19 +23,19 @@ int main() {
     bool win = false;
     for (auto &val : bingoNumbers) {
       numbersDrawn++;
-      for (auto &tile : bingoTiles) {
+      for (auto it = bingoTiles.begin(); it != bingoTiles.end();) {
+        auto &tile = *it;
         tile.markHit(val);
         win = tile.checkWin();
         if (win) {
-          winnerScore = tile.winnerScore(val);
+          std::cout << tile.winnerScore(val) << std::endl;
+          bingoTiles.erase(it);
           break;
+        } else {
+          it++;
         }
       }
-      if (win) {
-        break;
-      }
     }
-    std::cout << "Winner!! " << winnerScore << std::endl;
   } else if (day == 3) {
     std::string path = "src/main/day3/input.txt";
     FileReader fileReader(path);

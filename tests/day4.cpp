@@ -24,7 +24,6 @@ TEST(Day4Test, ExampleInput) {
         winnerScore = tile.winnerScore(val);
         break;
       }
-      tile.printTile();
     }
     if (win) {
       break;
@@ -35,4 +34,45 @@ TEST(Day4Test, ExampleInput) {
   ASSERT_EQ(win, true);
   ASSERT_EQ(numbersDrawn, 12);
   ASSERT_EQ(winnerScore, 4512);
+}
+
+TEST(Day4Test, Part2) {
+  std::string path = "tests/day4/testdata.txt";
+  FileReader fileReader(path);
+
+  std::vector<int> bingoNumbers;
+  std::vector<BingoTile> bingoTiles;
+
+  fileReader.getBingoTiles(bingoNumbers, bingoTiles);
+
+  int numbersDrawn = 0;
+  int winnerScore = 0;
+  int currentNumber;
+  int tileSum;
+  bool win = false;
+  for (auto &val : bingoNumbers) {
+    numbersDrawn++;
+    currentNumber = val;
+    std::cout << currentNumber << std::endl;
+    for (auto it = bingoTiles.begin(); it != bingoTiles.end();) {
+      auto &tile = *it;
+      tile.markHit(val);
+      win = tile.checkWin();
+      if (win) {
+        tile.printTile();
+        tileSum = tile.winnerScore(1);
+        winnerScore = tile.winnerScore(val);
+        it = bingoTiles.erase(it);
+      } else {
+        it++;
+      }
+    }
+    if (bingoTiles.size() == 0) {
+      break;
+    }
+  }
+
+  ASSERT_EQ(currentNumber, 13);
+  ASSERT_EQ(tileSum, 148);
+  ASSERT_EQ(winnerScore, 1924);
 }
