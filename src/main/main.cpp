@@ -20,22 +20,31 @@ int main() {
 
     int numbersDrawn = 0;
     int winnerScore = 0;
+    int currentNumber;
+    int tileSum;
     bool win = false;
     for (auto &val : bingoNumbers) {
       numbersDrawn++;
+      currentNumber = val;
+      std::cout << currentNumber << std::endl;
       for (auto it = bingoTiles.begin(); it != bingoTiles.end();) {
         auto &tile = *it;
         tile.markHit(val);
         win = tile.checkWin();
         if (win) {
-          std::cout << tile.winnerScore(val) << std::endl;
-          bingoTiles.erase(it);
-          break;
+          tile.printTile();
+          tileSum = tile.winnerScore(1);
+          winnerScore = tile.winnerScore(val);
+          it = bingoTiles.erase(it);
         } else {
           it++;
         }
       }
+      if (bingoTiles.size() == 0) {
+        break;
+      }
     }
+    std::cout << winnerScore << std::endl;
   } else if (day == 3) {
     std::string path = "src/main/day3/input.txt";
     FileReader fileReader(path);
