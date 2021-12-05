@@ -3,14 +3,25 @@
 #include "src/lib/day2solver.h"
 #include "src/lib/day3solver.h"
 #include "src/lib/day4solver.h"
+#include "src/lib/day5solver.h"
 #include "src/lib/util.h"
 
 #include <iostream>
 
 int main() {
 
-  int day = 4;
-  if (day == 4) {
+  int day = 5;
+  if (day == 5) {
+
+    std::string path = "src/main/day5/input.txt";
+    FileReader fileReader(path);
+
+    std::vector<std::pair<Point3D, Point3D>> data =
+        fileReader.getAsLineCoordinates();
+    Day5Solver solver(data);
+    int dangerSum = solver.solve(false);
+    std::cout << dangerSum << std::endl;
+  } else if (day == 4) {
     std::string path = "src/main/day4/input.txt";
     FileReader fileReader(path);
 

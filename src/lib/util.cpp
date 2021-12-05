@@ -2,8 +2,29 @@
 
 #include <fstream>
 #include <iostream>
+#include <regex>
 #include <sstream>
 #include <string>
+
+DataGrid::DataGrid(const int width, const int height)
+    : width(width), height(height) {
+  data.resize(width * height, 0);
+}
+
+void DataGrid::set(const int x, const int y, const int value) {
+  data[x + y * width] = value;
+}
+
+int DataGrid::get(const int x, const int y) { return data[x + y * width]; }
+
+void DataGrid::print() {
+  for (int j = 0; j < height; j++) {
+    for (int i = 0; i < width; i++) {
+      std::cout << get(i, j);
+    }
+    std::cout << std::endl;
+  }
+}
 
 Point3D &Point3D::operator+=(const Point3D &other) {
   this->x += other.x;
@@ -26,6 +47,13 @@ const Point3D Point3D::operator*(const int &other) const {
   result.y *= other;
   result.z *= other;
   return result;
+}
+
+bool operator==(const Point3D &first, const Point3D &second) {
+  return first.x == second.x && first.y == second.y && first.z == second.z;
+}
+bool operator!=(const Point3D &first, const Point3D &second) {
+  return !(first == second);
 }
 
 FileReader::FileReader(std::string path) {
@@ -128,4 +156,26 @@ void FileReader::getBingoTiles(std::vector<int> &bingoNumbers,
     }
   }
   bingoTiles.push_back(BingoTile(tileNumbers, width));
+}
+
+std::string FileReader::replaceSubString(const std::string &input,
+                                         const std::string &substr,
+                                         const std::string &replacement) {
+  return std::regex_replace(input, std::regex(substr), replacement);
+}
+
+std::vector<std::pair<Point3D, Point3D>> FileReader::getAsLineCoordinates() {
+  std::vector<std::pair<Point3D, Point3D>> result;
+  auto ss = std::stringstream{rawText};
+
+  for (std::string line; std::getline(ss, line, '\n');) {
+    line = replaceSubString(line, " -> ", ",");
+    line = replaceSubString(line, ",", " ");
+    int x1, y1, x2, y2;
+    std::istringstream is(line);
+    is >> x1 >> y1 >> x2 >> y2;
+    result.push_back(
+        std::pair<Point3D, Point3D>(Point3D(x1, y1, 0), Point3D(x2, y2, 0)));
+  }
+  return result;
 }

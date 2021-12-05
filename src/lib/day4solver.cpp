@@ -12,7 +12,6 @@ void Day4Solver::solveWorstTile(std::vector<int> bingoNumbers,
       tile.markHit(val);
       win = tile.checkWin();
       if (win) {
-        tile.printTile();
         tileSum = tile.winnerScore(1);
         winnerScore = tile.winnerScore(val);
         it = bingoTiles.erase(it);
