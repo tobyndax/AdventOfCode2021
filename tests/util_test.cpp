@@ -43,7 +43,17 @@ TEST(UtilTest, CanParseBingo) {
 }
 
 TEST(UtilTest, CanParseLineCoordinates) {
-  int numEntries = 0;
+
+  std::string path = "tests/day5/testdata.txt";
+  FileReader fileReader(path);
+
+  std::vector<std::pair<Point3D, Point3D>> data =
+      fileReader.getAsLineCoordinates();
+  int numEntries = data.size();
 
   ASSERT_EQ(numEntries, 10);
+
+  Point3D p0Start(0, 9, 0);
+  Point3D p0End(5, 9, 0);
+  ASSERT_EQ(data[0].first, p0Start);
 }
