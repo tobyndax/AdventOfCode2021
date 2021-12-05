@@ -6,6 +6,20 @@
 #include <string>
 #include <vector>
 
+class DataGrid {
+public:
+  DataGrid(const int width, const int height);
+  void set(const int x, const int y, const int value);
+  int get(const int x, const int y);
+  void print();
+  std::vector<int> getData() { return data; };
+
+private:
+  std::vector<int> data;
+  const int width;
+  const int height;
+};
+
 class Point3D {
 public:
   Point3D(double x, double y, double z) : x(x), y(y), z(z) {}

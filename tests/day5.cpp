@@ -9,17 +9,7 @@ TEST(Day5Test, CanConstructGrid) {
 
   std::vector<std::pair<Point3D, Point3D>> data =
       fileReader.getAsLineCoordinates();
-
-  int maxX = 0;
-  int maxY = 0;
-
-  for (auto val : data) {
-    int x0 = val.first.x;
-    int x1 = val.first.x;
-    int y0 = val.second.y;
-    int y1 = val.second.y;
-
-    maxX = std::max(maxX, std::max(x0, x1));
-    maxY = std::max(maxY, std::max(y0, y1));
-  }
+  Day5Solver solver(data);
+  int dangerSum = solver.solve();
+  ASSERT_EQ(dangerSum, 5);
 }

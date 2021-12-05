@@ -6,6 +6,26 @@
 #include <sstream>
 #include <string>
 
+DataGrid::DataGrid(const int width, const int height)
+    : width(width), height(height) {
+  data.resize(width * height, 0);
+}
+
+void DataGrid::set(const int x, const int y, const int value) {
+  data[x + y * width] = value;
+}
+
+int DataGrid::get(const int x, const int y) { return data[x + y * width]; }
+
+void DataGrid::print() {
+  for (int j = 0; j < height; j++) {
+    for (int i = 0; i < width; i++) {
+      std::cout << get(i, j);
+    }
+    std::cout << std::endl;
+  }
+}
+
 Point3D &Point3D::operator+=(const Point3D &other) {
   this->x += other.x;
   this->y += other.y;
