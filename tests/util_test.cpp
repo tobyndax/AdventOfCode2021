@@ -13,7 +13,7 @@ TEST(UtilTest, CanParseSimpleIntegers) {
   ASSERT_EQ(ints.size(), gt.size())
       << "Vectors ints and gt are of unequal length";
 
-  for (int i = 0; i < ints.size(); ++i) {
+  for (size_t i = 0; i < ints.size(); ++i) {
     EXPECT_EQ(ints[i], gt[i]) << "Vectors ints and gt differ at index " << i;
   }
 }
@@ -56,4 +56,15 @@ TEST(UtilTest, CanParseLineCoordinates) {
   Point3D p0Start(0, 9, 0);
   Point3D p0End(5, 9, 0);
   ASSERT_EQ(data[0].first, p0Start);
+  ASSERT_EQ(data[0].second, p0End);
+
+  Point3D p4Start(7, 0, 0);
+  Point3D p4End(7, 4, 0);
+  ASSERT_EQ(data[4].first, p4Start);
+  ASSERT_EQ(data[4].second, p4End);
+
+  Point3D p9Start(5, 5, 0);
+  Point3D p9End(8, 2, 0);
+  ASSERT_EQ(data[9].first, p9Start);
+  ASSERT_EQ(data[9].second, p9End);
 }
