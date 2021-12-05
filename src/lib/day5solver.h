@@ -4,7 +4,7 @@
 class Day5Solver {
 public:
   Day5Solver(std::vector<std::pair<Point3D, Point3D>> inputData);
-  int solve();
+  int solve(bool skipDiagonals);
 
 private:
   void getRequiredGridSize(int &maxX, int &maxY);

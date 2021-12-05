@@ -22,6 +22,6 @@ TEST(Day5Test, CalcDangerSumWithDiagonals) {
   std::vector<std::pair<Point3D, Point3D>> data =
       fileReader.getAsLineCoordinates();
   Day5Solver solver(data);
-  int dangerSum = solver.solve();
-  ASSERT_EQ(dangerSum, 5);
+  int dangerSum = solver.solve(false);
+  ASSERT_EQ(dangerSum, 12);
 }

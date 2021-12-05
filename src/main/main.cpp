@@ -19,7 +19,7 @@ int main() {
     std::vector<std::pair<Point3D, Point3D>> data =
         fileReader.getAsLineCoordinates();
     Day5Solver solver(data);
-    int dangerSum = solver.solve();
+    int dangerSum = solver.solve(true);
     std::cout << dangerSum << std::endl;
   } else if (day == 4) {
     std::string path = "src/main/day4/input.txt";
