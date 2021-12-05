@@ -67,4 +67,20 @@ TEST(UtilTest, CanParseLineCoordinates) {
   Point3D p9End(8, 2, 0);
   ASSERT_EQ(data[9].first, p9Start);
   ASSERT_EQ(data[9].second, p9End);
+
+  int maxX = 0;
+  int maxY = 0;
+
+  for (auto val : data) {
+    int x0 = val.first.x;
+    int x1 = val.first.x;
+    int y0 = val.second.y;
+    int y1 = val.second.y;
+
+    maxX = std::max(maxX, std::max(x0, x1));
+    maxY = std::max(maxY, std::max(y0, y1));
+  }
+
+  ASSERT_EQ(maxX, 9);
+  ASSERT_EQ(maxY, 9);
 }
