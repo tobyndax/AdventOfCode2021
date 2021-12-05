@@ -41,3 +41,9 @@ TEST(UtilTest, CanParseBingo) {
   ASSERT_EQ(bingoNumbers.size(), 27);
   ASSERT_EQ(bingoTiles.size(), 3);
 }
+
+TEST(UtilTest, CanParseLineCoordinates) {
+  int numEntries = 0;
+
+  ASSERT_EQ(numEntries, 10);
+}

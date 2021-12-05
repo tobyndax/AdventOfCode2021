@@ -8,7 +8,8 @@ cc_library(
         "day1solver.cpp",
         "day2solver.cpp",
         "day3solver.cpp",
-        "day4solver.cpp"
+        "day4solver.cpp",
+        "day5solver.cpp"
         ],
     hdrs = [
         "cpplib.h",
@@ -16,7 +17,8 @@ cc_library(
         "day1solver.h",
         "day2solver.h",
         "day3solver.h",
-        "day4solver.h"
+        "day4solver.h",
+        "day5solver.h"
         ],
     visibility = ["//visibility:public"]
     )

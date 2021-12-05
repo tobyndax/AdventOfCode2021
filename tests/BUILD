@@ -11,6 +11,7 @@ cc_test(
         "day1/testdata2.txt",
         "day2/testdata.txt",
         "day3/testdata.txt",
-        "day4/testdata.txt"
+        "day4/testdata.txt",
+        "day5/testdata.txt"
         ]
     )
