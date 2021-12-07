@@ -4,14 +4,22 @@
 #include "src/lib/day3solver.h"
 #include "src/lib/day4solver.h"
 #include "src/lib/day5solver.h"
+#include "src/lib/day6solver.h"
 #include "src/lib/util.h"
 
 #include <iostream>
 
 int main() {
 
-  int day = 5;
-  if (day == 5) {
+  int day = 6;
+  if (day == 6) {
+    FileReader fileReader("src/main/day6/input.txt");
+
+    auto data = fileReader.getAsIntegers(',');
+    Day6Solver solver(data);
+    long long int numFish = solver.solve(256);
+    std::cout << numFish << std::endl;
+  } else if (day == 5) {
 
     std::string path = "src/main/day5/input.txt";
     FileReader fileReader(path);
