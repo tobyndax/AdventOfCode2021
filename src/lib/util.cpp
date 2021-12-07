@@ -66,12 +66,12 @@ FileReader::FileReader(std::string path) {
   }
 }
 
-std::vector<int> FileReader::getAsIntegers() {
+std::vector<int> FileReader::getAsIntegers(char separator) {
 
   std::vector<int> result;
   auto ss = std::stringstream{rawText};
 
-  for (std::string line; std::getline(ss, line, '\n');) {
+  for (std::string line; std::getline(ss, line, separator);) {
     result.push_back(std::stoi(line));
   }
   return result;

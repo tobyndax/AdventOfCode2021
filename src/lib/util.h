@@ -38,7 +38,7 @@ public:
 class FileReader {
 public:
   FileReader(std::string path);
-  std::vector<int> getAsIntegers();
+  std::vector<int> getAsIntegers(char separator = '\n');
   std::vector<std::pair<Point3D, int>> getDirectionValue();
   std::vector<std::string> getAsStrings();
   void getBingoTiles(std::vector<int> &bingoNumbers,
