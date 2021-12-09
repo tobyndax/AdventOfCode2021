@@ -4,11 +4,5 @@ cc_binary(
     name = "main",
     srcs = ["main.cpp"],
     deps = ["//src/lib:CPPLib"],
-    data = [
-        "day1/input.txt",
-        "day2/input.txt",
-        "day3/input.txt",
-        "day4/input.txt",
-        "day5/input.txt"
-        ]
+    data = glob(["**/input.txt"])
     )
