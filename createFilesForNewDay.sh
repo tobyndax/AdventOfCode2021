@@ -19,20 +19,22 @@ git add "src/lib/day$1solver.cpp"
 cat <<EOT >> "src/lib/day$1solver.h"
 #pragma once
 
-class Day$1Solver{
-public:
-  Day$1Solver();
-private:
+#include <vector>
 
+class Day$1Solver {
+public:
+  Day$1Solver(std::vector<int> input);
+  int solve();
+private:
+  std::vector<int> input;
 };
 EOT
 
 cat <<EOT >> "src/lib/day$1solver.cpp"
 #include "day$1solver.h"
 
-Day$1Solver::Day$1Solver(){
-
-}
+day$1solver::day$1solver(std::vector<int> input) : input(input) {}
+int day$1solver::solve() {}
 
 EOT
 
@@ -41,6 +43,10 @@ cat <<EOT >> "tests/day$1.cpp"
 #include "src/lib/util.h"
 #include "gtest/gtest.h"
 
+TEST(Day$1Test, Part1) {
+  FileReader fileReader("tests/day$1/testdata.txt");
+  ASSERT_EQ(false, true);
+}
 TEST(Day$1Test, Part1) {
   ASSERT_EQ(false, true);
 }
