@@ -5,14 +5,23 @@
 #include "src/lib/day4solver.h"
 #include "src/lib/day5solver.h"
 #include "src/lib/day6solver.h"
+#include "src/lib/day7solver.h"
 #include "src/lib/util.h"
 
 #include <iostream>
 
 int main() {
 
-  int day = 6;
-  if (day == 6) {
+  int day = 7;
+  if (day == 7) {
+    FileReader fileReader("src/main/day7/input.txt");
+
+    auto data = fileReader.getAsIntegers(',');
+    Day7Solver solver(data);
+    int pos, fuel;
+    solver.solve(pos, fuel);
+    std::cout << fuel << std::endl;
+  } else if (day == 6) {
     FileReader fileReader("src/main/day6/input.txt");
 
     auto data = fileReader.getAsIntegers(',');

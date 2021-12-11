@@ -11,4 +11,32 @@ TEST(Day7Test, Input) {
   }
 }
 
-TEST(Day7Test, Part1) {}
+TEST(Day7Test, Part1) {
+  FileReader fileReader("tests/day7/testdata.txt");
+  std::vector<int> data = fileReader.getAsIntegers(',');
+
+  int gtResult = 37;
+  int gtPosition = 2;
+
+  int pos, fuelCost;
+  Day7Solver solver(data);
+  solver.solve(pos, fuelCost);
+
+  ASSERT_EQ(fuelCost, gtResult);
+  ASSERT_EQ(pos, gtPosition);
+}
+
+TEST(Day7Test, Part2) {
+  FileReader fileReader("tests/day7/testdata.txt");
+  std::vector<int> data = fileReader.getAsIntegers(',');
+
+  int gtResult = 168;
+  int gtPosition = 5;
+
+  int pos, fuelCost;
+  Day7Solver solver(data);
+  solver.solvePart2(pos, fuelCost);
+
+  ASSERT_EQ(fuelCost, gtResult);
+  ASSERT_EQ(pos, gtPosition);
+}
