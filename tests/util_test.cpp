@@ -84,3 +84,11 @@ TEST(UtilTest, CanParseLineCoordinates) {
   ASSERT_EQ(maxX, 9);
   ASSERT_EQ(maxY, 9);
 }
+
+TEST(UtilTest, CanSplitText) {
+  std::string first, second;
+  FileReader::splitString("128 | 132", " | ", first, second);
+
+  ASSERT_EQ("128", first);
+  ASSERT_EQ("132", second);
+}
