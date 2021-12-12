@@ -22,3 +22,19 @@ TEST(Day8Test, Part1) {
 
   ASSERT_EQ(numUnique, 26);
 }
+
+TEST(Day8Test, Part2) {
+
+  std::vector<int> gt{8394, 9781, 1197, 9361, 4873,
+                      8418, 4548, 1625, 8717, 4315};
+  FileReader fileReader("tests/day8/testdata.txt");
+  auto data = fileReader.getSignalCodes();
+  Day8Solver solver = Day8Solver(data);
+
+  std::vector<int> codes = solver.solvePart2();
+
+  ASSERT_EQ(codes.size(), 10);
+  for (int i = 0; i < codes.size(); i++) {
+    ASSERT_EQ(codes[i], gt[i]);
+  }
+}
