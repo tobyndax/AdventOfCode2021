@@ -179,3 +179,15 @@ std::vector<std::pair<Point3D, Point3D>> FileReader::getAsLineCoordinates() {
   }
   return result;
 }
+
+std::vector<Day8Entry> FileReader::getSignalCodes() {
+  return std::vector<Day8Entry>();
+}
+
+void FileReader::splitString(const std::string input,
+                             const std::string separator, std::string &output1,
+                             std::string &output2) {
+  output1 = input.substr(0, input.find(separator));
+  output2 =
+      input.substr(input.find(separator) + separator.size(), input.size());
+}
