@@ -4,6 +4,12 @@
 
 TEST(Day8Test, ParseInput) {
   FileReader fileReader("tests/day8/testdata.txt");
-  ASSERT_EQ(false, true);
+  auto data = fileReader.getSignalCodes();
+  ASSERT_EQ(data.size(), 10);
+  ASSERT_EQ(data[4].signals[1], "fbg");
+  ASSERT_EQ(data[4].code[1], "egdcabf");
+  ASSERT_EQ(data[4].signals.size(), 10);
+  ASSERT_EQ(data[4].code.size(), 4);
 }
+
 TEST(Day8Test, Part1) { ASSERT_EQ(false, true); }

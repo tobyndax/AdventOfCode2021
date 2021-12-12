@@ -5,12 +5,11 @@
 
 class Day8Entry {
 public:
-  Day8Entry(std::vector<std::string> signalSequences,
-            std::vector<std::string> code)
-      : signalSequences(signalSequences), code(code){
+  Day8Entry(std::vector<std::string> signals, std::vector<std::string> code)
+      : signals(signals), code(code){
 
-                                          };
-  std::vector<std::string> signalSequences;
+                          };
+  std::vector<std::string> signals;
   std::vector<std::string> code;
 };
 
