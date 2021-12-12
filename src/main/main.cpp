@@ -6,14 +6,23 @@
 #include "src/lib/day5solver.h"
 #include "src/lib/day6solver.h"
 #include "src/lib/day7solver.h"
+#include "src/lib/day8solver.h"
 #include "src/lib/util.h"
 
 #include <iostream>
 
 int main() {
 
-  int day = 7;
-  if (day == 7) {
+  int day = 8;
+  if (day == 8) {
+
+    FileReader fileReader("src/main/day8/input.txt");
+    auto data = fileReader.getSignalCodes();
+    Day8Solver solver = Day8Solver(data);
+
+    int numUnique = solver.solve();
+    std::cout << numUnique << std::endl;
+  } else if (day == 7) {
     FileReader fileReader("src/main/day7/input.txt");
 
     auto data = fileReader.getAsIntegers(',');

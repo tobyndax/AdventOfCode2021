@@ -12,4 +12,13 @@ TEST(Day8Test, ParseInput) {
   ASSERT_EQ(data[4].code.size(), 4);
 }
 
-TEST(Day8Test, Part1) { ASSERT_EQ(false, true); }
+TEST(Day8Test, Part1) {
+
+  FileReader fileReader("tests/day8/testdata.txt");
+  auto data = fileReader.getSignalCodes();
+  Day8Solver solver = Day8Solver(data);
+
+  int numUnique = solver.solve();
+
+  ASSERT_EQ(numUnique, 26);
+}

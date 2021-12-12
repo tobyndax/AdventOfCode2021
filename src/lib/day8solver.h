@@ -15,9 +15,9 @@ public:
 
 class Day8Solver {
 public:
-  Day8Solver(std::vector<int> input);
+  Day8Solver(std::vector<Day8Entry> input);
   int solve();
 
 private:
-  std::vector<int> input;
+  std::vector<Day8Entry> input;
 };
