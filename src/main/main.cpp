@@ -20,8 +20,12 @@ int main() {
     auto data = fileReader.getSignalCodes();
     Day8Solver solver = Day8Solver(data);
 
-    int numUnique = solver.solve();
-    std::cout << numUnique << std::endl;
+    std::vector<int> codes = solver.solvePart2();
+    int sum = 0;
+    for (const auto &val : codes) {
+      sum += val;
+    }
+    std::cout << sum << std::endl;
   } else if (day == 7) {
     FileReader fileReader("src/main/day7/input.txt");
 
