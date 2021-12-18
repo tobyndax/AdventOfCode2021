@@ -1,6 +1,7 @@
 #pragma once
 
 #include "day4solver.h"
+#include "day8solver.h"
 
 #include <iostream>
 #include <string>
@@ -44,6 +45,12 @@ public:
   void getBingoTiles(std::vector<int> &bingoNumbers,
                      std::vector<BingoTile> &bingoTiles);
   std::vector<std::pair<Point3D, Point3D>> getAsLineCoordinates();
+  std::vector<Day8Entry> getSignalCodes();
+  std::vector<std::string> splitString(const std::string input,
+                                       const std::string separator);
+  static void splitStringSingle(const std::string input,
+                                const std::string separator,
+                                std::string &output1, std::string &output2);
 
 private:
   std::string rawText = "";

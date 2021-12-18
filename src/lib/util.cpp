@@ -179,3 +179,39 @@ std::vector<std::pair<Point3D, Point3D>> FileReader::getAsLineCoordinates() {
   }
   return result;
 }
+
+std::vector<std::string> FileReader::splitString(const std::string input,
+                                                 const std::string separator) {
+  std::vector<std::string> results;
+  auto start = 0U;
+  auto end = input.find(separator);
+  while (end != std::string::npos) {
+    results.push_back(input.substr(start, end - start));
+    start = end + separator.length();
+    end = input.find(separator, start);
+  }
+
+  results.push_back(input.substr(start, end));
+  return results;
+}
+
+std::vector<Day8Entry> FileReader::getSignalCodes() {
+
+  std::vector<Day8Entry> results;
+  auto ss = std::stringstream{rawText};
+  for (std::string line; std::getline(ss, line, '\n');) {
+    std::string signals, code;
+    splitStringSingle(line, " | ", signals, code);
+    results.push_back(
+        Day8Entry(splitString(signals, " "), splitString(code, " ")));
+  }
+  return results;
+}
+
+void FileReader::splitStringSingle(const std::string input,
+                                   const std::string separator,
+                                   std::string &output1, std::string &output2) {
+  output1 = input.substr(0, input.find(separator));
+  output2 =
+      input.substr(input.find(separator) + separator.size(), input.size());
+}

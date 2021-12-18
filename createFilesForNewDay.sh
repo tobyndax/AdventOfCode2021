@@ -33,8 +33,8 @@ EOT
 cat <<EOT >> "src/lib/day$1solver.cpp"
 #include "day$1solver.h"
 
-day$1solver::day$1solver(std::vector<int> input) : input(input) {}
-int day$1solver::solve() {}
+Day$1Solver::Day$1Solver(std::vector<int> input) : input(input) {}
+int Day$1Solver::solve() {}
 
 EOT
 
@@ -43,7 +43,7 @@ cat <<EOT >> "tests/day$1.cpp"
 #include "src/lib/util.h"
 #include "gtest/gtest.h"
 
-TEST(Day$1Test, Part1) {
+TEST(Day$1Test, ParseInput) {
   FileReader fileReader("tests/day$1/testdata.txt");
   ASSERT_EQ(false, true);
 }
